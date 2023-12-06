@@ -1,0 +1,190 @@
+* {
+  list-style: none;
+}
+
+.CVWrapper {
+  width: 210mm;
+  height: 297mm;
+  max-width: 210mm;
+  max-height: 297mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 20%; /*SİLİNECEK*/
+  border: 1px solid black;
+}
+.header {
+  height: 15%;
+  width: 100%;
+  background-color: #03c0e2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header h1 {
+  margin-right: 10%;
+}
+.contact {
+  background-color: rgb(33, 33, 33);
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  left: 3%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photoContainer {
+  width: 60%;
+  height: 15%;
+  /* 577 557*/
+  margin-top: 15%;
+  border-radius: 50%;
+  border: 4px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoContainer img {
+  width: 98%;
+  height: 98%;
+  border-radius: 50%;
+  border: 4px solid #03d1f6;
+  object-fit: cover;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  margin-top: 5%;
+  text-align: justify;
+}
+.aboutTitle {
+  width: 90%;
+  background-color: #03c0e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+}
+
+.aboutP {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.mail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -2vh;
+}
+.skills {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  margin-top: 5%;
+  text-align: justify;
+}
+.skillsTitle {
+  width: 90%;
+  background-color: #03c0e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  align-self: center;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.names {
+  margin-left: -2vw;
+}
+
+.information {
+  position: absolute;
+  height: 85%;
+  width: 57%;
+  top: 15%;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.educationTitle {
+  width: 100%;
+  background-color: rgb(33, 33, 33);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  color: white;
+}
+
+.information ul {
+  margin-top: 0;
+}
+
+.information ul li {
+  margin-top: -2vh;
+}
+.information ul li p {
+  margin-top: -2vh;
+}
+
+.education {
+  width: 100%;
+}
+
+.workExp {
+  width: 100%;
+}
+
+.hobbies {
+  width: 100%;
+}
+
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1%;
+}
+.hobbies li {
+  flex-basis: 35%; /* Adjust as needed */
+  margin-bottom: 10px; /* Optional: Add spacing between items */
+}
+.button {
+  background-color: rgb(33, 33, 33);
+  color: white;
+}

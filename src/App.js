@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import English from "./pages/English";
+import Turkish from "./pages/Turkish";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [turkish, setTurkish] = useState(false);
+  const [english, setEnglish] = useState(false);
+
+  const [languange, setLanguange] = useState(false);
+
+  const turkishHandler = (e) => {
+    e.preventDefault();
+    setTurkish(true);
+    setEnglish(false);
+  };
+
+  const englishHandler = (e) => {
+    e.preventDefault();
+    setTurkish(false);
+    setEnglish(true);
+  };
+  return turkish ? (
+    <Turkish onClick={englishHandler} />
+  ) : (
+    <English onClick={turkishHandler} />
   );
 }
 
