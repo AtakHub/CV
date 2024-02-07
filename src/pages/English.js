@@ -17,36 +17,54 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 
-const ABOUT_P = `
-I graduated from TED University with honors, holding a bachelor's degree in Electrical and Electronics Engineering. Alongside my expertise in electrical engineering and electronics, I pursued a well-rounded education by taking diverse core courses such as Physics, Elementary German, Introduction to Sociology, World History, and Children's Literature. Additionally, I expanded my academic horizon by completing Business and Administrations as a Secondary Field, aligning with the principles of a liberal education.
-
-Recognizing my affinity for software development, I further honed my skills as a front-end web developer after graduating. Throughout my academic journey, I consistently garnered strong references from my professors, attesting to my dedication and proficiency. In the professional realm, I am committed to delivering my utmost to any organization I am part of, while maintaining a respectful and collaborative approach towards both the work environment and my colleagues.
-`;
+import {
+  ABOUT_P_ENGLISH,
+  CITY_INFO_ENGLISH,
+  LANGUAGES_ENGLISH,
+  LEVELS_ENGLISH,
+  HOBBIES_ENGLISH,
+  EDUCATION_ENGLISH,
+  WORK_EXP_ENGLISH,
+  REFERENCES_ENGLISH,
+} from "../components/English";
+import {
+  ABOUT_P_TURKISH,
+  CITY_INFO_TURKISH,
+  HOBBIES_TURKISH,
+  LANGUAGES_TURKISH,
+  LEVELS_TURKISH,
+  EDUCATION_TURKISH,
+  WORK_EXP_TURKISH,
+  REFERENCES_TURKISH,
+} from "../components/Turkish";
+import { useState } from "react";
 
 function English(props) {
+  const [isEnglish, setIsEnglish] = useState(true);
+  const translateHandler = (e) => {
+    e.preventDefault();
+    setIsEnglish((prev) => !prev);
+  };
   return (
     <div className="CVWrapper">
       <header className="header">
-        <button
-          className="button"
-          onClick={props.onClick}
-          style={{ position: "absolute", top: "0", right: "0" }}
-        >
-          {" "}
-          Click Here For Turkish CV{" "}
-        </button>
-        <h1>Hüseyin Atakan Özler</h1>
+        <h1 onClick={translateHandler}> Hüseyin Atakan Özler </h1>{" "}
       </header>
       <div className="contact">
         <div className="photoContainer">
-          <img alt="photo" src={photo} />
+          <img alt="photos" src={photo} />
         </div>
         <div className="about">
           <div className="aboutTitle">
-            <h2>About Me</h2>
+            <h2>
+              {" "}
+              {isEnglish ? ABOUT_P_ENGLISH.title : ABOUT_P_TURKISH.title}{" "}
+            </h2>
           </div>
           <div className="aboutP">
-            <p style={{ fontSize: ".73rem" }}>{ABOUT_P} </p>{" "}
+            <p style={{ fontSize: ".73rem" }}>
+              {isEnglish ? ABOUT_P_ENGLISH.desc : ABOUT_P_TURKISH.desc}{" "}
+            </p>{" "}
           </div>
         </div>
         <div className="info">
@@ -58,33 +76,55 @@ function English(props) {
           <div className="mail">
             <FontAwesomeIcon icon={faMobile} />
             &nbsp;&nbsp;
-            <p>0 (506) 701 90 88</p>
+            <p>+90 (506) 701 90 88</p>
           </div>{" "}
           <div className="mail">
             <FontAwesomeIcon icon={faLocationDot} />
             &nbsp;&nbsp;
-            <p>Uşak, Türkiye</p>{" "}
+            <p> {isEnglish ? CITY_INFO_ENGLISH : CITY_INFO_TURKISH} </p>{" "}
           </div>{" "}
         </div>
         <div style={{ marginTop: "-2vh" }} className="skills">
           <div className="skillsTitle">
-            <h2>Yabancı Diller</h2>
+            <h2>
+              {isEnglish ? LANGUAGES_ENGLISH.title : LANGUAGES_TURKISH.title}
+            </h2>
           </div>
           <div className="skillsList">
             <ul>
-              <li>Türkçe</li>
-              <li>İngilizce </li>
+              <li>
+                {" "}
+                {isEnglish
+                  ? LANGUAGES_ENGLISH.native
+                  : LANGUAGES_TURKISH.native}
+              </li>
+              <li>
+                {" "}
+                {isEnglish ? LANGUAGES_ENGLISH.other : LANGUAGES_TURKISH.other}
+              </li>
             </ul>
             <ul style={{ marginLeft: "-3vh" }}>
-              <li>(Anadil) </li>
-              <li>(İleri Seviye) </li>
+              <li>
+                ({" "}
+                {isEnglish
+                  ? LANGUAGES_ENGLISH.nativeDegree
+                  : LANGUAGES_TURKISH.nativeDegree}
+                ){" "}
+              </li>
+              <li>
+                ({" "}
+                {isEnglish
+                  ? LANGUAGES_ENGLISH.otherDegree
+                  : LANGUAGES_TURKISH.otherDegree}
+                ){" "}
+              </li>
             </ul>
           </div>{" "}
         </div>
         <div style={{ marginTop: "-2vh" }} className="skills">
           {" "}
           <div className="skillsTitle">
-            <h2>Skills</h2>
+            <h2>{isEnglish ? LEVELS_ENGLISH.title : LEVELS_TURKISH.title}</h2>
           </div>{" "}
           <div className="skillsList">
             <ul className="icons">
@@ -149,31 +189,61 @@ function English(props) {
               <li>Java</li>
               <li>C</li>
               <li>Linux</li>
-              <li>MS Office Programs</li>
+              <li>MS Office</li>
               <li>MATLAB</li>
             </ul>{" "}
             <ul style={{ marginLeft: "-2.5vw" }} className="levels">
-              <li>(Intermediate) </li>
-              <li>(Intermediate)</li>
-              <li>(Begginner) </li>
-              <li>(Begginner)</li>
-              <li>(Begginner)</li>
-              <li>(Begginner)</li>
-              <li>(Begginner)</li>
-              <li>(Advanced)</li>
-              <li>(Intermediate) </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.inter : LEVELS_TURKISH.inter}){" "}
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.inter : LEVELS_TURKISH.inter})
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.beginner : LEVELS_TURKISH.beginner}
+                ){" "}
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.beginner : LEVELS_TURKISH.beginner}
+                )
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.beginner : LEVELS_TURKISH.beginner}
+                )
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.beginner : LEVELS_TURKISH.beginner}
+                )
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.beginner : LEVELS_TURKISH.beginner}
+                )
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.inter : LEVELS_TURKISH.inter})
+              </li>
+              <li>
+                ({isEnglish ? LEVELS_ENGLISH.advanced : LEVELS_TURKISH.advanced}
+                ){" "}
+              </li>
             </ul>{" "}
           </div>
         </div>
         <div style={{ marginTop: "-2vh" }} className="skills">
           <div className="skillsTitle">
-            <h2>Hobbies</h2>
+            <h2>{isEnglish ? HOBBIES_ENGLISH.title : HOBBIES_TURKISH.title}</h2>
           </div>
           <ul className="hobbies">
-            <li>Research</li>
-            <li>Chess</li>
-            <li>Reading</li>
-            <li>Sports</li>
+            <li>
+              {isEnglish ? HOBBIES_ENGLISH.research : HOBBIES_TURKISH.research}
+            </li>
+            <li>{isEnglish ? HOBBIES_ENGLISH.chess : HOBBIES_TURKISH.chess}</li>
+            <li>
+              {isEnglish ? HOBBIES_ENGLISH.reading : HOBBIES_TURKISH.reading}
+            </li>
+            <li>
+              {isEnglish ? HOBBIES_ENGLISH.sports : HOBBIES_TURKISH.sports}
+            </li>
           </ul>
         </div>
       </div>
@@ -181,9 +251,12 @@ function English(props) {
         {" "}
         <div className="education">
           <div className="educationTitle">
-            <h2>Education</h2>
+            <h2>
+              {" "}
+              {isEnglish ? EDUCATION_ENGLISH.title : EDUCATION_TURKISH.title}
+            </h2>
           </div>
-          <ul>
+          <ul className="educationUl">
             <li>
               <h3> Uşak Lisesi (2012 - 2015) </h3>
             </li>
@@ -191,81 +264,131 @@ function English(props) {
               <h3>Özel Uşak Seçkin Temel Lisesi (2015 - 2016)</h3>
             </li>
             <li>
-              <h3>Ted University (2017 – 2022)</h3>
-              <p>Electrical – Electronics Engineering Program </p>
+              <h3>
+                {" "}
+                {isEnglish
+                  ? EDUCATION_ENGLISH.university
+                  : EDUCATION_TURKISH.university}
+                (2017 – 2022)
+              </h3>
+              <p>
+                {" "}
+                {isEnglish
+                  ? EDUCATION_ENGLISH.universityDes
+                  : EDUCATION_TURKISH.universityDes}
+              </p>
             </li>
             <li>
-              <h3>Secondary Field (2019-2022)</h3>
-              <p>Business and Administration </p>
+              <h3>
+                {" "}
+                {isEnglish
+                  ? EDUCATION_ENGLISH.secField
+                  : EDUCATION_TURKISH.secField}
+                (2019-2022)
+              </h3>
+              <p>
+                {" "}
+                {isEnglish
+                  ? EDUCATION_ENGLISH.secFieldDes
+                  : EDUCATION_TURKISH.secFieldDes}
+              </p>
             </li>
           </ul>
         </div>
         <div className="workExp">
           <div className="educationTitle">
-            <h2>Work Experience</h2>
+            <h2>
+              {" "}
+              {isEnglish ? WORK_EXP_ENGLISH.title : WORK_EXP_TURKISH.title}
+            </h2>
           </div>
-          <ul>
+          <ul className="workExpUl">
             <li>
               <h3>INOFAB HEALTH (2021)</h3>
-              <p>Intern Embedded Software</p>
+              <p>
+                {" "}
+                {isEnglish ? WORK_EXP_ENGLISH.des1 : WORK_EXP_TURKISH.des1}
+              </p>
             </li>
             <li>
               <h3>Assisguard (2022)</h3>
-              <p>Candidate Engineer</p>
+              <p>
+                {" "}
+                {isEnglish ? WORK_EXP_ENGLISH.des2 : WORK_EXP_TURKISH.des2}
+              </p>
             </li>
             <li>
               <h3>avcidedektor.com (2023)</h3>
-              <p>I developed this site in ReactJS.</p>
+              <p>{isEnglish ? WORK_EXP_ENGLISH.des3 : WORK_EXP_TURKISH.des3}</p>
             </li>
             <li>
-              <h3>AloTech (2022 - Present)</h3>
-              <p>Technical Support Specialist</p>
+              <h3>
+                AloTech (2022 {isEnglish ? "Dec" : "Aralık"} - 2023{" "}
+                {isEnglish ? "Dec" : "Aralık"})
+              </h3>
+              <p>
+                {" "}
+                {isEnglish ? WORK_EXP_ENGLISH.des5 : WORK_EXP_TURKISH.des5}
+              </p>
             </li>
           </ul>
         </div>
-        <div className="workExp">
+        <div className="workExp reference">
           <div className="educationTitle">
-            <h2>References</h2>
+            <h2>
+              {" "}
+              {isEnglish ? REFERENCES_ENGLISH.title : REFERENCES_TURKISH.title}
+            </h2>
           </div>
-          <ul>
+          <ul className="workExpUl">
             <li>
               <h3>Prof. Dr. Altunkan Hızal</h3>
               <p>
-                ODTÜ Electrical-Electronics Engineering Program Retired
-                Professor, Advisor at ASELSAN A.Ş.
+                {isEnglish ? REFERENCES_ENGLISH.des1 : REFERENCES_TURKISH.des1}
               </p>
               <p>hizal@metu.edu.tr 0 (533) 514 37 72</p>
             </li>
             <li>
               <h3>Prof. Dr. Erdem Yazgan</h3>
               <p>
-                TED University Electrical-Electronics Engineering Program
-                Professor
+                {isEnglish ? REFERENCES_ENGLISH.des2 : REFERENCES_TURKISH.des2}
               </p>
               <p>erdem.yazgan@tedu.edu.tr 0 (312) 585 02 27</p>
             </li>
             <li>
               <h3>Assoc. Prof. Dr. Hüseyin Uğur Yıldız</h3>
               <p>
-                TED University Electrical-Electronics Engineering Program
-                Departmant Chair
+                {isEnglish ? REFERENCES_ENGLISH.des3 : REFERENCES_TURKISH.des3}
               </p>
               <p>hugur.yildiz@tedu.edu.tr 0 (312) 585 02 21</p>
             </li>
             <li>
               <h3>Dr. Aykut Yıldız</h3>
               <p>
-                TED University Electrical-Electronics Engineering Program
-                Professor
+                {isEnglish ? REFERENCES_ENGLISH.des4 : REFERENCES_TURKISH.des4}
               </p>
               <p>aykut.yildiz@tedu.edu.tr 0 (312) 585 02 78</p>
             </li>
           </ul>
         </div>{" "}
-        <p style={{ marginTop: "3vh" }}>This CV is built with ReactJS.</p>
+        <p
+          style={{
+            position: "absolute",
+            bottom: "0",
+            right: "0",
+            fontSize: "0.5rem",
+            marginTop: "3vh",
+          }}
+        >
+          {isEnglish
+            ? "This CV is built with ReactJS."
+            : "Bu CV ReactJS ile hazırlanmıştır."}
+        </p>
       </div>
     </div>
   );
 }
 
 export default English;
+
+//P.S: Given that the website is designed for PDF, the CV has been tailored accordingly.

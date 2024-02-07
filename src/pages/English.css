@@ -3,16 +3,13 @@
 }
 
 .CVWrapper {
-  width: 210mm;
-  height: 297mm;
-  max-width: 210mm;
-  max-height: 297mm;
+  width: 21cm;
+  height: 29.7cm;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   top: 0;
-  left: 20%; /*SİLİNECEK*/
   border: 1px solid black;
 }
 .header {
@@ -26,6 +23,7 @@
 
 .header h1 {
   margin-right: 10%;
+  cursor: pointer;
 }
 .contact {
   background-color: rgb(33, 33, 33);
@@ -70,11 +68,11 @@
 }
 .aboutTitle {
   width: 90%;
-  background-color: #03c0e2;
+  border-bottom: 2px solid #03c0e2;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 6vh;
+  height: 4vh;
 }
 
 .aboutP {
@@ -108,12 +106,12 @@
 }
 .skillsTitle {
   width: 90%;
-  background-color: #03c0e2;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 6vh;
+  height: 3.5vh;
   align-self: center;
+  border-bottom: 2px solid #03c0e2;
 }
 
 .skillsList {
@@ -139,12 +137,26 @@
 
 .educationTitle {
   width: 100%;
-  background-color: rgb(33, 33, 33);
+  border-bottom: 2px solid rgb(33, 33, 33);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 6vh;
   color: white;
+  margin-bottom: vh;
+}
+.educationTitle h2 {
+  color: black;
+  margin-bottom: -1vh;
+}
+
+.education ul {
+  margin-bottom: -3vh;
+}
+
+.workExpUl,
+.educationUl {
+  margin-top: 3vh !important;
 }
 
 .information ul {
@@ -164,6 +176,10 @@
 
 .workExp {
   width: 100%;
+}
+
+.reference {
+  margin-top: -3vh;
 }
 
 .hobbies {
@@ -187,4 +203,9 @@
 .button {
   background-color: rgb(33, 33, 33);
   color: white;
+}
+
+.educationUl li,
+.workExpUl li {
+  margin-bottom: 3vh;
 }
